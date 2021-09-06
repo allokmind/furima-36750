@@ -70,6 +70,11 @@ RSpec.describe Item, type: :model do
         @item.valid?
         expect(@item.errors.full_messages).to include('Price is not a number')
       end
+      it 'priceが半角英数混合ではでは登録できない' do
+        @item.price = '123a'
+        @item.valid?
+        expect(@item.errors.full_messages).to include('Price is not a number')
+      end
       it 'priceが¥299以下では登録できない' do
         @item.price = 299
         @item.valid?

@@ -9,8 +9,8 @@ class Item < ApplicationRecord
   belongs_to :prefecture
   belongs_to :shipping_day
 
-  validates :item_name, :description, presence: true
-  validates :price, presence: true, numericality: { in: 300..9999999 }, format: { with: /\A[0-9]+\z/, message: '半角数字を使用してください' }
+  validates :item_name, :description, :image, presence: true
+  validates :price, presence: true, numericality: { with: /\A[0-9]+\z/, greater_than_or_equal_to: 300, less_than_or_equal_to: 9999999 }
 
   validates :category_id, numericality: { other_than: 1, message: "can't be blank" } 
   validates :status_id, numericality: { other_than: 1, message: "can't be blank" } 

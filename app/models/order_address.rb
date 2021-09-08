@@ -1,8 +1,5 @@
 class OrderAddress
 
-  extend ActiveHash::Associations::ActiveRecordExtensions
-  belongs_to :prefecture
-
   include ActiveModel::Model
   attr_accessor :user_id, :item_id, :postal_code, :prefecture_id, :city, :address_line, :building_name, :phone_number, :order_id
 
@@ -16,7 +13,6 @@ class OrderAddress
     validates :order_id
   end
   validates :prefecture_id, numericality: { other_than: 1, message: "can't be blank" }
-end
 
   def save
      order = Order.create(user_id: user_id, item_id: item_id)

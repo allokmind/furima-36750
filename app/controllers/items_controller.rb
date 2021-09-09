@@ -56,7 +56,6 @@ class ItemsController < ApplicationController
   end
 
   def sold_out
-    redirect_to action: :index if current_user.id == @item.user_id && @item.order != nil
+    redirect_to action: :index if current_user.id == @item.user_id && !@item.order.nil?
   end
-
 end

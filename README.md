@@ -63,3 +63,5 @@
 | order                  | references | null: false, foreign_key: true |
 
 - belongs_to :order
+
+# 公開鍵・秘密鍵の記述に関してはPAY.JPにて変更済

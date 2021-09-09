@@ -22,11 +22,11 @@ RSpec.describe OrderAddress, type: :model do
         expect(@order_address).to be_valid
       end
       it 'phone_numberは半角数字10桁だと保存できる' do
-        @order_address.phone_number = "1234567890"
+        @order_address.phone_number = '1234567890'
         expect(@order_address).to be_valid
       end
       it 'phone_numberは半角数字11桁でも保存できる' do
-        @order_address.phone_number = "12345123451"
+        @order_address.phone_number = '12345123451'
         expect(@order_address).to be_valid
       end
     end
@@ -68,12 +68,12 @@ RSpec.describe OrderAddress, type: :model do
         expect(@order_address.errors.full_messages).to include('Phone number is invalid.')
       end
       it 'phone_numberが9桁以下だと保存できない' do
-        @order_address.phone_number = "123456789"
+        @order_address.phone_number = '123456789'
         @order_address.valid?
         expect(@order_address.errors.full_messages).to include('Phone number is invalid.')
       end
       it 'phone_numberが12桁以上だと保存できない' do
-        @order_address.phone_number = "123456123456"
+        @order_address.phone_number = '123456123456'
         @order_address.valid?
         expect(@order_address.errors.full_messages).to include('Phone number is invalid.')
       end
